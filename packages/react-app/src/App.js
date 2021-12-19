@@ -4,8 +4,6 @@ import { useQuery } from "@apollo/react-hooks";
 import { Body, Button, Header, WalletLabel } from "./components";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
-import GET_TRANSFERS from "./graphql/subgraph";
-
 async function getEnsName(provider, address) {
   var name = await provider.lookupAddress(provider.provider.selectedAddress);
   return (name)
