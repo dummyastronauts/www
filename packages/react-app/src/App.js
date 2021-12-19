@@ -29,14 +29,8 @@ function WalletButton({ label, provider, loadWeb3Modal, logoutOfWeb3Modal }) {
 }
 
 function App() {
-  const { loading, error, data } = useQuery(GET_TRANSFERS);
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
   const [ensName, setEnsName] = useState("");
-
-  React.useEffect(() => {
-    if (loading) {}
-    if (!loading && !error && data && data.transfers) {}
-  }, [loading, error, data]);
 
   if (provider) {
     getEnsName(provider, provider.provider.selectedAddress).then((ensName) => {
