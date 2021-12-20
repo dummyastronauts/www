@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/react-hooks";
+import Davatar from '@davatar/react';
 
-import { Body, Button, Header, WalletLabel } from "./components";
+import { Body, Button } from "./components";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
 async function getEnsName(provider, address) {
@@ -10,43 +10,57 @@ async function getEnsName(provider, address) {
 }
 
 function WalletButton({ label, provider, loadWeb3Modal, logoutOfWeb3Modal }) {
+  var address = ""
+  if (provider) {
+    address = provider.provider.selectedAddress
+  }
   return (
-    <div>
-      <Button
-        onClick={() => {
-          if (!provider) {
-            loadWeb3Modal();
-          } else {
-            logoutOfWeb3Modal();
-          }
-        }}
-      >
-        {!provider ? "Connect Wallet" :  "Disconnect Wallet" }
-      </Button>
-      <WalletLabel>{label}</WalletLabel>
+    <div className="header">
+      <div className="headerleft">
+        <div><Davatar
+          size={40}
+          provider={provider}
+          address={address}
+          generatedAvatarType="blockies"
+        /></div>
+        <div>{label}</div>
+      </div>
+      <div className="headerright">
+        <div><Button
+          onClick={() => {
+            if (!provider) {
+              loadWeb3Modal();
+            } else {
+              logoutOfWeb3Modal();
+            }
+          }}
+        >
+          {!provider ? "Connect Wallet" :  "Disconnect Wallet" }
+        </Button></div>
+      </div>
     </div>
   );
 }
 
 function App() {
   const [provider, loadWeb3Modal, logoutOfWeb3Modal] = useWeb3Modal();
-  const [ensName, setEnsName] = useState("");
+  const [wallet, setWallet] = useState("");
 
   if (provider) {
     getEnsName(provider, provider.provider.selectedAddress).then((ensName) => {
       if (ensName == null) {
-        setEnsName(provider.provider.selectedAddress.substring(0,8));
+        setWallet(provider.provider.selectedAddress.substring(0,21));
       } else {
-        setEnsName(ensName);
+        setWallet(ensName);
       }
     });
   }
 
   return (
     <div>
-      <Header>
-        <WalletButton label={ensName} provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal}  />
-      </Header>
+      <div>
+        <WalletButton label={wallet} provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal}  />
+      </div>
       <Body>
         <div className="wrapper">
           <div>
@@ -54,7 +68,7 @@ function App() {
             {provider ? <div>Add your wallet address to the whitelist</div> : <div></div>}
           </div>
           <div>
-            <img alt="Dummy Astronaut" width="200px" height="200px" src="NFT_Blue_01.png"></img>
+            <img alt="Dummy Astronaut" width="300px" height="300px" src="NFT_Blue_01.png"></img>
           </div>
         </div>
       </Body>

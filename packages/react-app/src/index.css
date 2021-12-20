@@ -17,4 +17,42 @@ code {
   grid-template-columns: 2fr 1fr;
   grid-auto-rows: minmax(400px, 400px);
   grid-gap: 1em;
+  padding: 1em;
 }
+
+.headerright{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
+  justify-items: end;
+  align-items: center;
+}
+
+.headerleft{
+  display: grid;
+  grid-template-columns: 40px 5fr;
+  grid-gap: 1em;
+  justify-items: start;
+  align-items: center;
+}
+
+.header{
+  background-color: #70B0CF;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  padding: 1em;
+  align-items: center;
+}
+
+/*.header > div{
+  border: #333 1px solid;
+}
+
+.headerright > div{
+  border: #fff 1px solid;
+}
+
+.headerleft > div{
+  border: #fff 1px solid;
+}*/
