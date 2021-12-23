@@ -12,8 +12,6 @@ export const Header = styled.header`
 
 export const Body = styled.div`
   align-items: center;
-  background-color: #70B0CF;
-  color: white;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -36,10 +34,11 @@ export const Link = styled.a.attrs({
 `;
 
 export const Button = styled.button`
-  background-color: #CE6F6F;
+  background-color: #C73649;
   border: none;
   border-radius: 8px;
-  color: #282c34;
+  color: #fff;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   cursor: pointer;
   font-size: 16px;
   text-align: center;

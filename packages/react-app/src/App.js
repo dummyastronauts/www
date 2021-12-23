@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Davatar from '@davatar/react';
 
-import { Body, Button } from "./components";
+import { Button } from "./components";
 import useWeb3Modal from "./hooks/useWeb3Modal";
 
 async function getEnsName(provider, address) {
@@ -16,16 +16,28 @@ function WalletButton({ label, provider, loadWeb3Modal, logoutOfWeb3Modal }) {
   }
   return (
     <div className="header">
-      <div className="headerleft">
-        <div><Davatar
-          size={40}
-          provider={provider}
-          address={address}
-          generatedAvatarType="blockies"
-        /></div>
-        <div>{label}</div>
-      </div>
+      {
+        address ? 
+        <div className="headerleft">
+          <div><Davatar
+            size={50}
+            provider={provider}
+            address={address}
+            generatedAvatarType="blockies"
+          /></div>
+          <div>{label}</div>
+        </div>
+        :
+        <div className="headerleft">
+        </div>
+      }
       <div className="headerright">
+        <div className="socials">
+            <i class="fab fa-twitter"></i>
+        </div>
+        <div className="socials">
+            <i class="fab fa-discord"></i>
+        </div>
         <div><Button
           onClick={() => {
             if (!provider) {
@@ -57,21 +69,16 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <div>
         <WalletButton label={wallet} provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal}  />
       </div>
-      <Body>
+      <div className="body">
         <div className="wrapper">
-          <div>
-            <div>Coming soon...</div>
-            {provider ? <div>Add your wallet address to the whitelist</div> : <div></div>}
-          </div>
-          <div>
-            <img alt="Dummy Astronaut" width="300px" height="300px" src="NFT_Blue_01.png"></img>
-          </div>
+          <div></div><div>Coming soon...</div>
+          <div></div>{provider ? <div><Button> {"Join the waitlist"} </Button></div> : <div></div>}
         </div>
-      </Body>
+      </div>
     </div>
   );
 }
