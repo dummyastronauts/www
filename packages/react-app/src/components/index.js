@@ -29,22 +29,26 @@ export const Link = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer",
 })`
-  color: #61dafb;
+  color: #C73649;
   margin-top: 10px;
 `;
 
 export const Button = styled.button`
-  background-color: #C73649;
+  background-color: #808080;
   border: none;
   border-radius: 8px;
   color: #fff;
   text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
-  cursor: pointer;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
   margin: 10px 10px;
   padding: 12px 24px;
+
+  ${props => props.disabled && "disabled"} {
+    background-color: #C73649;
+    cursor: pointer;
+  }
 
   ${props => props.hidden && "hidden"} :focus {
     border: none;
