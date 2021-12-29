@@ -73,13 +73,10 @@ function App() {
         <WalletButton label={wallet} provider={provider} loadWeb3Modal={loadWeb3Modal} logoutOfWeb3Modal={logoutOfWeb3Modal}  />
       </div>
       <div className="body">
-        <div className="wrapper">
-          <div></div><div>Coming soon...</div>
-          <div></div>{provider ? <div><Button disabled> {"Join the waitlist"} </Button></div> : <div></div>}
-        </div>
+          <div>Coming soon...</div>
+          {provider ? <div><Button disabled> {"Join the waitlist"} </Button></div> : <div></div>}
       </div>
-      <div className="">
-        {"Miss baby"}
+      <div className="footer">
       </div>
     </div>
   );
