@@ -12,8 +12,6 @@ export const Header = styled.header`
 
 export const Body = styled.div`
   align-items: center;
-  background-color: #70B0CF;
-  color: white;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -31,21 +29,26 @@ export const Link = styled.a.attrs({
   target: "_blank",
   rel: "noopener noreferrer",
 })`
-  color: #61dafb;
+  color: #C73649;
   margin-top: 10px;
 `;
 
 export const Button = styled.button`
-  background-color: #CE6F6F;
+  background-color: #808080;
   border: none;
   border-radius: 8px;
-  color: #282c34;
-  cursor: pointer;
+  color: #fff;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   font-size: 16px;
   text-align: center;
   text-decoration: none;
   margin: 10px 10px;
   padding: 12px 24px;
+
+  ${props => props.disabled && "disabled"} {
+    background-color: #C73649;
+    cursor: pointer;
+  }
 
   ${props => props.hidden && "hidden"} :focus {
     border: none;
