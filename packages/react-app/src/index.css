@@ -21,13 +21,18 @@ code {
 .body{
   background-image: url('https://dev.dummyastronauts.io/Dummy_Astronauts_Banner.jpeg');
   background-repeat: no-repeat;
-  background-size: 100%;
-  align-items: center;
+  background-size: contain;
+  width: 100%;
+  height: 0;
+  padding-top: 68.18%;
+  align-items: end;
+  color: white;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: calc(100vh - 70px);
+  justify-content: end;
+  /*min-height: calc(1000vh - 70px);*/
 }
 
 .wrapper{
@@ -37,7 +42,7 @@ code {
   color: white;
   text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   /*grid-gap: 1em;*/
-  /*justify-items: end;*/
+  justify-items: end;
   padding: 1em;
 }
 
@@ -69,6 +74,16 @@ code {
 
 .header{
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
+  grid-gap: 1em;
+  padding: 1em;
+  align-items: center;
+}
+
+.footer{
+  display: grid;
   background: #1D2343;
   grid-template-columns: 1fr 1fr;
   color: white;
@@ -80,6 +95,10 @@ code {
 
 /*.wrapper > div{
   border: #fff 1px solid;
+}*/
+
+/*.body > div{
+  border: #000 1px solid;
 }*/
 
 /*.header > div{
