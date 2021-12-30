@@ -25,13 +25,13 @@ code {
   width: 100%;
   height: 0;
   padding-top: 68.18%;
-  align-items: end;
+  align-items: flex-end;
   color: white;
   text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  justify-content: end;
+  justify-content: flex-end;
   /*min-height: calc(1000vh - 70px);*/
 }
 
@@ -75,6 +75,7 @@ code {
 .header{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: #1D2343;
   color: white;
   text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
   grid-gap: 1em;
@@ -84,7 +85,7 @@ code {
 
 .footer{
   display: grid;
-  background: #1D2343;
+  background: #D9C04B;
   grid-template-columns: 1fr 1fr;
   color: white;
   text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;
